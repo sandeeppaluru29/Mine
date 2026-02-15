@@ -17,7 +17,7 @@
 
 body {
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   background: linear-gradient(135deg, #ff4e8b, #ff006e, #8338ec);
   display: flex;
   justify-content: center;
@@ -192,10 +192,18 @@ function moveButton(){
 
 // YES button celebration
 document.getElementById("yesBtn").addEventListener("click", ()=>{
-  document.getElementById("mainContent").innerHTML=
-  "<div class='celebrate'>I knew you’d say yes… Because some feelings never disappear.They just grow quietly with time.There was never anything to regret — only something beautiful finding its way back. what I feel for you has always been bigger than words.This guy has loved you more than you thought …Not just then. Not just now.But always — and I promise I always will 🤞 🫰 </div>";
+  document.body.style.overflow = "auto";
+document.body.style.alignItems = "flex-start";
 
-  // Heart Rain
+document.getElementById("mainContent").innerHTML=
+"<div class='celebrate' style='margin-top:60px; padding:20px; max-width:800px;'>\
+I knew you’d say yes… ❤️<br><br>\
+Because some feelings never disappear. They just grow quietly with time.<br><br>\
+There was never anything to regret — only something beautiful finding its way back.<br><br>\
+What I feel for you has always been bigger than words.<br><br>\
+This guy has loved you more than you thought… Not just then. Not just now. But always — and I promise I always will 🤞🫰\
+</div>";
+  Heart Rain
   for (let i=0;i<60;i++){
     const rain=document.createElement("div");
     rain.className="rain-heart";
