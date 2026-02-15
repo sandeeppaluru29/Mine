@@ -16,6 +16,9 @@
 }
 
 body {
+  <audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  </audio>
   height: 100vh;
   overflow: hidden;
   background: linear-gradient(135deg, #ff4e8b, #ff006e, #8338ec);
@@ -195,6 +198,8 @@ function moveButton(){
 
 // YES button click
 document.getElementById("yesBtn").addEventListener("click", ()=>{
+
+  document.getElementById("bgMusic").play();
 
   // Enable scroll and change layout
   document.body.style.display = "block";
