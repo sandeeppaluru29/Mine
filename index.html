@@ -16,9 +16,6 @@
 }
 
 body {
-  <audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-  </audio>
   height: 100vh;
   overflow: hidden;
   background: linear-gradient(135deg, #ff4e8b, #ff006e, #8338ec);
@@ -113,10 +110,11 @@ button {
 
 /* Celebration */
 .celebrate {
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: white;
   animation: zoomIn 1s forwards;
   line-height: 1.6;
+  text-align: center;
 }
 
 @keyframes zoomIn {
@@ -151,6 +149,11 @@ button {
 </head>
 
 <body>
+
+<!-- ✅ CORRECT PLACE FOR MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container" id="mainContent">
   <h1>Rohini, WILL YOU BE MY VALENTINE?</h1>
@@ -201,7 +204,6 @@ document.getElementById("yesBtn").addEventListener("click", ()=>{
 
   document.getElementById("bgMusic").play();
 
-  // Enable scroll and change layout
   document.body.style.display = "block";
   document.body.style.overflow = "auto";
 
@@ -224,22 +226,6 @@ document.getElementById("yesBtn").addEventListener("click", ()=>{
     rain.style.animationDuration=2+Math.random()*3+"s";
     document.body.appendChild(rain);
   }
-
-  // GIFs
-  const gifs=[
-    "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif",
-    "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
-    "https://media.giphy.com/media/26u4cqiYI30juCOGY/giphy.gif"
-  ];
-
-  gifs.forEach(src=>{
-    const img=document.createElement("img");
-    img.src=src;
-    img.className="gif";
-    img.style.left=Math.random()*80+"vw";
-    img.style.top=Math.random()*70+"vh";
-    document.body.appendChild(img);
-  });
 
 });
 </script>
