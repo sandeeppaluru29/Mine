@@ -21,7 +21,7 @@ body {
   background: linear-gradient(135deg, #ff4e8b, #ff006e, #8338ec);
   display: flex;
   justify-content: center;
-  align-items: center;  /* change this */       /* add this */
+  align-items: center;
   position: relative;
 }
 
@@ -58,6 +58,7 @@ body {
   z-index: 10;
   padding: 20px;
   max-width: 95%;
+  text-align: center;
 }
 
 h1 {
@@ -109,9 +110,10 @@ button {
 
 /* Celebration */
 .celebrate {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: white;
   animation: zoomIn 1s forwards;
+  line-height: 1.6;
 }
 
 @keyframes zoomIn {
@@ -148,7 +150,7 @@ button {
 <body>
 
 <div class="container" id="mainContent">
-  <h1 id="question">Rohini , WILL YOU BE MY VALENTINE?</h1>
+  <h1>Rohini, WILL YOU BE MY VALENTINE?</h1>
 
   <div class="buttons">
     <button id="yesBtn">YES 💖</button>
@@ -157,6 +159,7 @@ button {
 </div>
 
 <script>
+
 // Floating Hearts
 const emojis = ["❤️","💖","💘","💝","💕","💞","💓"];
 for (let i=0;i<40;i++){
@@ -177,7 +180,7 @@ for (let i=0;i<50;i++){
   document.body.appendChild(sparkle);
 }
 
-// NO button moves away
+// NO button moves
 const noBtn=document.getElementById("noBtn");
 noBtn.addEventListener("mouseover", moveButton);
 noBtn.addEventListener("touchstart", moveButton);
@@ -190,20 +193,24 @@ function moveButton(){
   noBtn.style.top=y+"vh";
 }
 
-// YES button celebration
+// YES button click
 document.getElementById("yesBtn").addEventListener("click", ()=>{
-  document.body.style.overflow = "auto";
-document.body.style.alignItems = "flex-start";
 
-document.getElementById("mainContent").innerHTML=
-<div class='celebrate' style='margin-top:60px; padding:20px; max-width:800px;'>\
-I knew you’d say yes… ❤️<br><br>\
-Because some feelings never disappear. They just grow quietly with time.<br><br>\
-There was never anything to regret — only something beautiful finding its way back.<br><br>\
-What I feel for you has always been bigger than words.<br><br>\
-This guy has loved you more than you thought… Not just then. Not just now. But always — and I promise I always will 🤞🫰\
-</div>;
-  Heart Rain
+  // Enable scroll and change layout
+  document.body.style.display = "block";
+  document.body.style.overflow = "auto";
+
+  document.getElementById("mainContent").innerHTML = `
+    <div class="celebrate" style="margin-top:60px; padding:20px; max-width:800px; margin-left:auto; margin-right:auto;">
+      I knew you’d say yes… ❤️<br><br>
+      Because some feelings never disappear. They just grow quietly with time.<br><br>
+      There was never anything to regret — only something beautiful finding its way back.<br><br>
+      What I feel for you has always been bigger than words.<br><br>
+      This guy has loved you more than you thought… Not just then. Not just now. But always — and I promise I always will 🤞🫰
+    </div>
+  `;
+
+  // Heart Rain
   for (let i=0;i<60;i++){
     const rain=document.createElement("div");
     rain.className="rain-heart";
@@ -213,7 +220,7 @@ This guy has loved you more than you thought… Not just then. Not just now. But
     document.body.appendChild(rain);
   }
 
-  // Add GIFs
+  // GIFs
   const gifs=[
     "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif",
     "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
@@ -229,17 +236,6 @@ This guy has loved you more than you thought… Not just then. Not just now. But
     document.body.appendChild(img);
   });
 
-  // Fireworks Confetti
-  setInterval(()=>{
-    const conf=document.createElement("div");
-    conf.innerText="🎆";
-    conf.style.position="absolute";
-    conf.style.left=Math.random()*100+"vw";
-    conf.style.top=Math.random()*100+"vh";
-    conf.style.fontSize="30px";
-    document.body.appendChild(conf);
-    setTimeout(()=>conf.remove(),2000);
-  },300);
 });
 </script>
 
